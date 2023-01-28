@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "SCRIPT AUTO INSTALL WINDOWS by SENO6262"
+echo "SCRIPT AUTO INSTALL WINDOWS by TRUSTSEC"
 echo
 echo "Pilih OS yang ingin anda install"
 echo "[1] Windows 2019(Default)"
@@ -50,7 +50,6 @@ EOF
 
 cat >/tmp/dpart.bat<<EOF
 @ECHO OFF
-echo "https://shopee.co.id/seno6262" 
 echo JENDELA INI JANGAN DITUTUP
 echo SCRIPT INI AKAN MERUBAH PORT RDP MENJADI 7890, UNTUK MENYAMBUNG KE RDP GUNAKAN ALAMAT $IP4:7890
 echo KETIK YES LALU ENTER!
@@ -98,4 +97,4 @@ wget https://nixpoin.com/ChromeSetup.exe
 cp -f /tmp/net.bat net.bat
 cp -f /tmp/dpart.bat dpart.bat
 
-echo "reboot Rdp dulu mazzeh baru bisa pake"
+echo "REBOOT RDP DULU GAN"
