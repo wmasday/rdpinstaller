@@ -1,12 +1,12 @@
 #!/bin/bash
-echo "SCRIPT AUTO INSTALL WINDOWS by TRUSTSEC"
+echo "Windows Installer by Team Therr0rs"
 echo
 echo "Pilih OS yang ingin anda install"
-echo "[1] Windows 2019(Default)"
+echo "[1] Windows 2019 (Default)"
 echo "[2] Windows 2016"
 echo "[3] Windows 2012"
 echo "[4) Windows 10"
-echo "[5] Chat Ryan Untuk Add OS lain"
+echo "[5] Custom Link Zip (GZ)"
 
 read -p "Pilih [1]: " PILIH OS
 
@@ -15,14 +15,13 @@ case "$PILIHOS" in
 	2) PILIHOS="https://nixpoin.sgp1.cdn.digitaloceanspaces.com/windows2016.gz";;
 	3) PILIHOS="https://nixpoin.sgp1.cdn.digitaloceanspaces.com/windows2012v2.gz";;
 	4) PILIHOS="https://nixpoin.sgp1.cdn.digitaloceanspaces.com/win10.gz";;
-	5) read -p "[?] Masukkan Link GZ mu : " PILIHOS;;
+	5) read -p "[?] Link ZIP (GZ) : " PILIHOS;;
 	*) echo "[!] Pilihan salah"; exit;;
 esac
 
-echo "[*] Password yang saya buat sudah masuk wordlist bruteforce, silahkan masukkan password yang lebih aman!"
-read -p "[?] Masukkan password untuk akun Administrator Rdp anda(minimal 12 karakter) : " PASSADMIN
+read -p "[?] Password Administrator (Minimal 12 Karakter) : " PASSADMIN
 
-IP4=$(curl -4 -s icanhazip.com)
+IP4=$(curl -w '\n' -4 -s findip.therrors.com)
 GW=$(ip route | awk '/default/ { print $3 }')
 
 
@@ -50,9 +49,8 @@ EOF
 
 cat >/tmp/dpart.bat<<EOF
 @ECHO OFF
-echo JENDELA INI JANGAN DITUTUP
-echo SCRIPT INI AKAN MERUBAH PORT RDP MENJADI 7890, UNTUK MENYAMBUNG KE RDP GUNAKAN ALAMAT $IP4:7890
-echo KETIK YES LALU ENTER!
+echo CREATING IP WITH PORT $IP4:7890
+echo NOTE : TYPE YES AND ENTER
 
 cd.>%windir%\GetAdmin
 if exist %windir%\GetAdmin (del /f /q "%windir%\GetAdmin") else (
@@ -97,4 +95,4 @@ wget https://nixpoin.com/ChromeSetup.exe
 cp -f /tmp/net.bat net.bat
 cp -f /tmp/dpart.bat dpart.bat
 
-echo "REBOOT RDP DULU GAN"
+echo "REBOOT DROPLET NOW"
