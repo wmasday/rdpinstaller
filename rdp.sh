@@ -21,7 +21,7 @@ esac
 
 read -p "[?] Password Administrator (Minimal 12 Karakter) : " PASSADMIN
 
-IP4=$(curl -w '\n' -4 -s findip.therrors.com)
+IP4=$(curl -4 -s icanhazip.com)
 GW=$(ip route | awk '/default/ { print $3 }')
 
 
